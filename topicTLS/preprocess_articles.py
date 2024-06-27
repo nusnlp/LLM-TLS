@@ -7,17 +7,6 @@ import datetime
 import json
 import argparse
 
-def get_dates_between(start_date, end_date):
-    if end_date < start_date:
-        raise ValueError("End date must be after start date.")
-    
-    dates = []
-    current_date = start_date
-    while current_date <= end_date:
-        dates.append(current_date.date())
-        current_date += datetime.timedelta(days=1)
-    return dates
-
 
 
 parser = argparse.ArgumentParser()
@@ -53,15 +42,9 @@ if __name__ == '__main__':
             sentence_with_time = []
             for s in sentences:
                 try:
-                    if s.time is not None:
-                        if s.time_level == 'd':
-                            date = datetime.datetime.strptime(str(s.time)[:10], '%Y-%m-%d').date()
-                            sentence_with_time.append(f"{str(date)}: {s.raw.strip()}")
-                        elif s.time_level == 'm':
-                            start, end = s.time[0], s.time[1]
-                            dates_between = get_dates_between(start, end)
-                            for d in dates_between:
-                                sentence_with_time.append(f"{str(d)}: {s.raw.strip()}")
+                    if s.time is not None and type(s.time) != tuple:
+                        date = datetime.datetime.strptime(str(s.time)[:10], '%Y-%m-%d').date()
+                        sentence_with_time.append(f"{str(date)}: {s.raw.strip()}")
                 except Exception as e:
                     print(e)
 
