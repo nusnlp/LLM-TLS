@@ -317,8 +317,7 @@ parser.add_argument("--incremental", action='store_true')
 parser.add_argument("--time_windows", type=int, default=0)
 parser.add_argument("--dataset", type=str, default='entities')
 parser.add_argument("--port", type=int, default=-1)
-parser.add_argument("--examples_path", type=str, required=True)
-parser.add_argument("--demon_num", type=int, required=True)
+parser.add_argument("--examples_path", type=str, default='./shots/entities/fewshot_0.json')
 parser.add_argument("--ds_path", type=str, default="./datasets/")
 
 if __name__ == "__main__":
@@ -344,7 +343,8 @@ if __name__ == "__main__":
     incremental_suffix = 'is_incremental' if args.incremental else 'not_incremental'
     openai.api_base = "http://0.0.0.0:8000/v1" 
     openai.api_key = "none"  # vLLM server is not authenticated
-    save_dir = os.path.join(args.output, f'{args.dataset}', args.model.split('/')[-1], f'{str(args.demon_num)}', incremental_suffix)
+    trial = str(args.examples_path).split('_')[-1].split('.')[0]
+    save_dir = os.path.join(args.output, f'{args.dataset}', args.model.split('/')[-1], trial, incremental_suffix)
 
 
     assert save_dir is not None

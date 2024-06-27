@@ -69,9 +69,7 @@ python generate_clusters.py \
     --top_n 20 \
     --dataset entities \
     --incremental \
-    --examples_path ./shots/entities/fewshot_0.json \
-    --keyword all \
-    --demon_num 0
+    --keyword all
 ```
 
 4. Perform timeline summarization and evaluation by ```cluster_tls_eval.py```
