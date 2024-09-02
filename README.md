@@ -1,5 +1,7 @@
 # LLM-TLS
-Repo for paper "From Moments to Milestones: Incremental Timeline Summarization Leveraging Large Language Models".
+Repo for paper "From Moments to Milestones: Incremental Timeline Summarization Leveraging Large Language Models". 
+
+Paper link: https://aclanthology.org/2024.acl-long.390.pdf
 
 ## Event-TLS
 
