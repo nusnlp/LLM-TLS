@@ -85,6 +85,14 @@ python cluster_tls_eval.py \
 If you encounter any problem with the code running, please contact qishenghu@u.nus.edu .
 
 ---
+# Citation
+
+If you make use of our released source code, please cite the following paper:
+ 
+> Qisheng Hu, Geonsik Moon, Hwee Tou Ng (2024). From Moments to Milestones: Incremental Timeline Summarization Leveraging Large Language Models. Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL 2024). (pp. 7232 – 7246). Bangkok, Thailand.
+
+
+---
 
 # License
 
